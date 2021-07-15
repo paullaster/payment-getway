@@ -1,0 +1,29 @@
+{
+  "name": "payment-getway",
+  "version": "1.0.0",
+  "description": "Integrating 2D PAYMENT API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paullaster/payment-getway.git"
+  },
+  "keywords": [
+    "payment",
+    "gateway"
+  ],
+  "author": "Paullaster Okoth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paullaster/payment-getway/issues"
+  },
+  "homepage": "https://github.com/paullaster/payment-getway#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "stripe": "^8.162.0"
+  }
+}
