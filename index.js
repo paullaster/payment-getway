@@ -10,12 +10,12 @@ const stripe = require('stripe')(process.env.SECRET_KEY);
 const fs = require('fs');
 //Initialize app
 const app = express();
-
+const hostname = '0.0.0.0';
 //App setting
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 //set up view engines
-//app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public')));
 //App request routes
@@ -52,7 +52,7 @@ app.post('/purchase', (req, res) =>{
                currency : 'usd'
            }).then(()=>{
                console.log("Charge successful");
-               res.json({message: "Successfully purchased the items"});
+               res.json({message: "Successfully purchased items"});
            }).catch(()=>{
                console.log("Charge failed");
                res.status(500).end();
@@ -61,6 +61,6 @@ app.post('/purchase', (req, res) =>{
     });
 });
 
-app.listen(process.env.PORT, (port)=>{
-    console.log(`Stripe is running on PORT ${process.env.PORT}`);
+app.listen(process.env.PORT, hostname, ()=>{
+    console.log(`Server is running at http://${hostname}:${process.env.PORT}`);
 });
