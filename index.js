@@ -1,12 +1,13 @@
-//Checking environment 
-if(process.env.NODE_ENV !== 'production'){
-    //Environments
-    require('dotenv').config(); 
-}
+// //Checking environment 
+// if(process.env.NODE_ENV !== 'production'){
+//     //Environments
+//     require('dotenv').config(); 
+// }
 //modules
 const express = require('express');
 const path = require('path');
-const stripe = require('stripe')(process.env.SECRET_KEY);
+const keys = require("./config/keys");
+const stripe = require('stripe')(keys.stripeSecretKey);
 const fs = require('fs');
 //Initialize app
 const app = express();
@@ -25,7 +26,7 @@ app.get('/store', (req, res) =>{
             res.status(500).end();
         }else{
             res.render('store.ejs', {
-                stripePublicKey: process.env.PUBLISHABLE_KEY,
+                stripePublicKey: keys.stripePublicKey,
                 items: JSON.parse(data)
             });
         }
