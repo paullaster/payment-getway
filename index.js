@@ -15,7 +15,7 @@ const hostname = '0.0.0.0';
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 //set up view engines
-app.set('views', path.join(__dirname, 'views'));
+//app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public')));
 //App request routes
